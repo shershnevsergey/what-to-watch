@@ -4,7 +4,11 @@ import MovieCard from "../movie-card/movie-card";
 
 const MainPage = ({films}) => {
   const filmsContent = films.map((filmTitle, i) => {
-    return <MovieCard key={i} title={filmTitle} />; // @todo change key
+    return <MovieCard
+      key={i} // @todo change key
+      title={filmTitle}
+      onTitleClick={() => {}}
+    />;
   });
 
   return (

@@ -16,6 +16,7 @@ exports[`Movie card correctly renders 1`] = `
   </div>
   <h3
     className="small-movie-card__title"
+    onClick={[MockFunction]}
   >
     <a
       className="small-movie-card__link"
