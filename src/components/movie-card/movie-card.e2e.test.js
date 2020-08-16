@@ -5,16 +5,23 @@ import MovieCard from "./movie-card";
 
 configure({adapter: new Adapter()});
 
-test(`MovieCard title click correctly works`, () => {
-  const onTitleClickMock = jest.fn();
+const film = {
+  id: `id-77`,
+  title: `my film title`,
+  poster: `img/my-poster.jpg`
+};
+
+test(`MovieCard correctly selects by hover`, () => {
+  const changeActiveCardMock = jest.fn();
 
   const movieCard = shallow(
       <MovieCard
-        title="film title 1"
-        onTitleClick={onTitleClickMock}
+        film={film}
+        changeActiveCard={changeActiveCardMock}
       />);
 
-  movieCard.find(`.small-movie-card__title`).simulate(`click`);
+  movieCard.find(`.small-movie-card`).simulate(`mouseenter`);
 
-  expect(onTitleClickMock).toHaveBeenCalledTimes(1);
+  expect(changeActiveCardMock).toHaveBeenCalledTimes(1);
+  expect(changeActiveCardMock).toHaveBeenNthCalledWith(1, film.id);
 });

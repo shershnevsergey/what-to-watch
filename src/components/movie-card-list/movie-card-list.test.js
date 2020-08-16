@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import App from "./app";
+import MovieCardList from "./movie-card-list";
 
 const films = [
   {
@@ -20,13 +20,11 @@ const films = [
   }
 ];
 
-
-test(`App correctly renders`, () => {
-  const app = renderer.create(
-      <App
+test(`MovieCardList correctly renders`, () => {
+  const movieCard = renderer.create(
+      <MovieCardList
         films={films}
-      />
-  ).toJSON();
+      />).toJSON();
 
-  expect(app).toMatchSnapshot();
+  expect(movieCard).toMatchSnapshot();
 });

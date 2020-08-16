@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import MainPage from '../main-page/main-page';
+import {film as filmPropTypes} from "../../types";
 
 const App = ({films}) => {
   return (
@@ -9,7 +10,7 @@ const App = ({films}) => {
 };
 
 App.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.string).isRequired
+  films: PropTypes.arrayOf(filmPropTypes).isRequired
 };
 
 export default App;

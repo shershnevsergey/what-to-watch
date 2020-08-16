@@ -1,16 +1,9 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import MovieCard from "../movie-card/movie-card";
+import MovieCardList from "../movie-card-list/movie-card-list";
+import {film as filmPropTypes} from "../../types";
 
 const MainPage = ({films}) => {
-  const filmsContent = films.map((filmTitle, i) => {
-    return <MovieCard
-      key={i} // @todo change key
-      title={filmTitle}
-      onTitleClick={() => {}}
-    />;
-  });
-
   return (
     <Fragment>
       <section className="movie-card">
@@ -107,7 +100,7 @@ const MainPage = ({films}) => {
           </ul>
 
           <div className="catalog__movies-list">
-            {filmsContent}
+            <MovieCardList films={films} />
           </div>
 
           <div className="catalog__more">
@@ -134,7 +127,7 @@ const MainPage = ({films}) => {
 };
 
 MainPage.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.string).isRequired
+  films: PropTypes.arrayOf(filmPropTypes).isRequired
 };
 
 export default MainPage;
